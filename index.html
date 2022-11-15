@@ -1,26 +1,26 @@
 <HTML>
 
 <HEAD>
-    <TITLE>Test Input</TITLE>
+    <TITLE>Moja super stronka</TITLE>
     <link rel="stylesheet" href="mystyle.css">
     <SCRIPT src="myscript.js" LANGUAGE="JavaScript"></SCRIPT>
 </HEAD>
 
 <BODY>
-    <FORM NAME="calculatorForm" ACTION="" METHOD="GET">Enter something in the box:
+    <FORM NAME="calculatorForm" ACTION="" METHOD="GET">
         <BR>
         <h4>Kalkulator</h4>
-        <select name="mode" onchange="changeNames(this.form, value)">
-                <option value="add" selected>Dodawanie</option>
-                <option value="sub">Odejmowanie</option>
-                <option value="mul">Mnożenie</option>
-                <option value="div">Dzielenie</option>
+        <select name="opt">
+                <option value="dodawanie" selected>Dodawanie</option>
+                <option value="odejmowanie">Odejmowanie</option>
+                <option value="mnozenie">Mnożenie</option>
+                <option value="dzielenie">Dzielenie</option>
             </select><br>
         <output name="name1">Liczba:</output><br>
-        <input type="number" name="input1"><br>
+        <input type="number" name="l1"><br>
         <output name="name2">Liczba:</output><br>
-        <input type="number" name="input2"><br>
-        <input type="button" value="Oblicz" onclick="handleCalculator(this.form)"><br> Wynik:
+        <input type="number" name="l2"><br>
+        <input type="button" value="Oblicz" onclick="kalkulator(this.form)"><br> Wynik:
         <br>
         <output name="result"></output>
     </FORM>
@@ -30,24 +30,22 @@
         <h4>Palindrom</h4>
         Napisz słowo:<br>
         <INPUT TYPE="text" NAME="input"><br>
-        <input type="button" value="Testuj" onclick="handlePalindrome(this.form)"><br> Palindrom?:
+        <INPUT TYPE="button" value="Testuj" onclick="palindrom(this.form)"><br> Palindrom?:
         <br>
         <output name="result"></output>
     </FORM>
 
 
-
-
-    <div>Anagram:</div>
-    <FORM NAME="anagramForm" ACTION="" METHOD="GET">Enter something in the box:
-        <BR>
-        <INPUT TYPE="text" NAME="inputbox3" VALUE="">
-        <P>
-            <INPUT TYPE="text" NAME="inputbox4" VALUE="">
-            <P></P>
-            <INPUT TYPE="button" NAME="button3" Value="Click" onClick="handleAnagramForm(this.form)">
+    <FORM>
+        <h4>Rekurencja</h4>
+        Pierwsza Liczba:<br>
+        <INPUT TYPE="number" NAME="a"><br> Druga Liczba:<br>
+        <INPUT TYPE="number" NAME="b"><br>
+        <INPUT TYPE="button" value="Testuj" onclick="rekurencja(this.form)"><br> Wynik:
+        <br>
+        <output name="result"></output>
     </FORM>
-    <div id="anagramResult"></div>
+
 </BODY>
 
 </HTML>

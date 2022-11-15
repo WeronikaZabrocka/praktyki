@@ -1,54 +1,31 @@
-function handleCalculator(form) {
-    form.result.innerHTML = calculate(form.input1.value, form.input2.value, form.mode.value);
+function kalkulator(form) {
+    form.result.innerHTML = kalkulator1(form.l1.value, form.l2.value, form.opt.value);
 }
 
-function calculate(x, y, mode) {
+function kalkulator1(x, y, opt) {
     x = parseFloat(x);
     y = parseFloat(y);
-    switch (mode) {
-        case 'add':
+    switch (opt) {
+        case 'dodawanie':
             return x + y;
-        case 'sub':
+        case 'odejmowanie':
             return x - y;
-        case 'mul':
+        case 'mnozenie':
             return x * y;
-        case 'div':
+        case 'dzielenie':
             if (y == 0)
                 return 'HEHE bardzo smieszne ale to nie przejdzie';
             return x / y;
     }
 }
 
-function changeNames(form, mode) {
-    n1 = form.f1;
-    n2 = form.f2;
-    i2 = form.f3;
-    i2.disabled = false;
-    switch (mode) {
-        case 'add':
-            n1.innerHTML = 'Składnik:';
-            n2.innerHTML = 'Składnik:';
-            return;
-        case 'sub':
-            n1.innerHTML = 'Odjemna:';
-            n2.innerHTML = 'Odejmnik:';
-            return;
-        case 'mul':
-            n1.innerHTML = 'Czynnik:';
-            n2.innerHTML = 'Czynnik:';
-            return;
-        case 'div':
-            n1.innerHTML = 'Dzielna:';
-            n2.innerHTML = 'Dzielnik:';
-            return;
-    }
+
+
+function palindrom(form) {
+    form.result.innerHTML = palindrom1(form.input.value);
 }
 
-function handlePalindrome(form) {
-    form.result.innerHTML = palindrome(form.input.value);
-}
-
-function palindrome(x) {
+function palindrom1(x) {
     x = x.toLowerCase();
     for (let i in x) {
         if (x[i] != x[x.length - 1 - i])
@@ -57,68 +34,34 @@ function palindrome(x) {
     return 'Wohooo to palindrom';
 }
 
-function handleAnagramForm(form) {
 
-    let word1 = form.inputbox3.value;
-    let word2 = form.inputbox4.value;
-    document.getElementById("anagramResult").innerHTML = anagram(word1, word2);
-}
-
-function bubbleSort(arr) {
-
-    for (var i = 0; i < arr.length; i++) {
-
-        for (var j = 0; j < (arr.length - i - 1); j++) {
-
-            if (arr[j] > arr[j + 1]) {
-                var temp = arr[j]
-                arr[j] = arr[j + 1]
-                arr[j + 1] = temp
-            }
+function najwieksza(tab) {
+    let najwieksza = 0
+    let druganajwieksza = 0
+    for (i = 0; i < tab.length; i++) {
+        if (tab[i] > najwieksza) {
+            druga_najwieksza = najwieksza;
+            najwieksza = tab[i];
         }
     }
-    return arr;
+    return druga_najwieksza;
+}
+console.log(najwieksza([1, 1, 2, 3, 4, 5, 5, 6, 8]))
+
+
+
+
+function rekurencja(form) {
+    a = parseInt(form.a.value);
+    b = parseInt(form.b.value);
+    form.result.innerHTML = rekurencja1(a, b);
 }
 
-function anagram(var1, var2) {
-    let word1 = [];
-    let word2 = [];
-    let flag = true;
 
-    word1ASCII = [];
-    word2ASCII = [];
-
-    word1 = var1.split('');
-    word2 = var2.split('');
-
-    if (word1.length == word2.length) {
-        for (let i = 0; i < word1.length; i++) {
-            word1ASCII[i] = word1[i].charCodeAt(0);
-        }
-
-        for (let i = 0; i < word2.length; i++) {
-            word2ASCII[i] = word2[i].charCodeAt(0);
-        }
-
-        word1ASCII = bubbleSort(word1ASCII);
-        word2ASCII = bubbleSort(word2ASCII);
-
-        console.log(word1ASCII);
-        console.log(word2ASCII);
-
-
-        for (let i = 0; i < word1ASCII.length; i++) {
-            if (word1ASCII[i] != word2ASCII[i]) {
-                flag = false;
-                break;
-            }
-        }
+function rekurencja1(a, b) {
+    if (a < b) {
+        return String(a) + " " + String(rekurencja1(a + 1, b))
     } else {
-        return false;
+        return a
     }
-    return flag;
 }
-
-console.log(anagram("siema", "siemb"));
-console.log("a".charCodeAt(0));
-console.log("b".charCodeAt(0));
